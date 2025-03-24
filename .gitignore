@@ -1,0 +1,8 @@
+.vscode
+build
+*.exe
+*.out
+*.log
+*.log.*
+*.log.*.*
+*.log.*.*.*
