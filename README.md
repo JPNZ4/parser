@@ -34,5 +34,6 @@ Run with a file:
 
 Or pipe input through stdin:
 ```bash
-cat input.ts | ./build/Debug/Parser.exe
+cat test_success.ts | ./build/Debug/Parser.exe
+cat test_failure.ts | ./build/Debug/Parser.exe
 ```
