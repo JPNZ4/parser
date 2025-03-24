@@ -32,8 +32,10 @@ Run with a file:
 ./build/Debug/Parser.exe test_failure.ts
 ```
 
-Or pipe input through stdin:
-```bash
-cat test_success.ts | ./build/Debug/Parser.exe
-cat test_failure.ts | ./build/Debug/Parser.exe
+Or pipe input through stdin (Windows PowerShell):
+```powershell
+Get-Content -Raw test_success.ts | ./build/Debug/Parser.exe
+Get-Content -Raw test_failure.ts | ./build/Debug/Parser.exe
 ```
+
+Note: When using stdin on Windows, use PowerShell's `Get-Content -Raw` instead of `cat` to properly handle binary data.

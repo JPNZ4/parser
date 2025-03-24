@@ -3,6 +3,8 @@
 #include <set>
 #include <cstdint>
 #include <fstream>
+#include <fcntl.h>
+#include <io.h>
 
 constexpr size_t PACKET_SIZE = 188;
 constexpr uint8_t SYNC_BYTE = 0x47;
@@ -80,6 +82,11 @@ bool parse_stream(std::istream &input)
 
 int main(int argc, char *argv[])
 {
+    // Set stdin to binary mode for Windows - Had issues with the input stream otherwise
+    #ifdef _WIN32
+    _setmode(_fileno(stdin), _O_BINARY);
+    #endif
+
     if (argc > 1)
     {
         // If filename is provided as argument, read from file
